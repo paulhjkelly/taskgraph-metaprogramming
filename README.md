@@ -2,14 +2,31 @@
 
 The TaskGraph Meta-programming Library is a C++ package that supports
 
-Run-time code generation - programs that generate code on the fly, then execute it (the first step towards "multi-stage" programming)
-Meta-programming - having built a piece of code, you can apply various transformations to it (such as loop interchange and tiling).
-You can download the current release of the library from here.
+* Run-time code generation - programs that generate code on the fly, then execute it (the first step towards "multi-stage" programming)
 
-The library is presented in a talk and a paper (however this distribution has a tidied and more typesafe design).
+* Meta-programming - having built a piece of code, you can apply various transformations to it (such as loop interchange and tiling).
+
+The library is presented in the following paper (however this distribution has a tidied and more typesafe design):
+
+> Olav Beckmann, Alastair Houghton, Michael R. Mellor, Paul H. J. Kelly:
+> Runtime Code Generation in C++ as a Foundation for Domain-Specific Optimisation. Domain-Specific Program Generation 2003: 291-306
+
+```bibtex
+@inproceedings{Beckmann2003RuntimeCG,
+  title={Runtime Code Generation in C++ as a Foundation for Domain-Specific Optimisation},
+  author={Olav Beckmann and Alastair Houghton and Michael R. Mellor and Paul H. J. Kelly},
+  booktitle={Domain-Specific Program Generation},
+  editor = "hristian Lengauer and Don Batory and Charles Consel and Martin Odersky",
+  publisher = "Springer LNCS",
+  volume = 3016,
+  year={2003}
+}
+```
+Available from [Springer](https://link.springer.com/chapter/10.1007/978-3-540-25935-0_17) or freely from [here](https://www.doc.ic.ac.uk/~phjk/Publications/DagstuhlDSPGBookPaperOnTaskGraphs.pdf).
+
 
 ## Example (from examples/introductory/simpleinterchange)
-```C++ 
+```cpp 
 #include <stdio.h>
 #include <stdlib.h>
 #include <TaskGraph>
@@ -54,7 +71,7 @@ Iteration i=1, j=1
 T(2) = 4
 ```
 At runtime it generates the following code:
-```C++
+```cpp
 extern int printf(char *, ...);
 extern int taskGraph_0(void **);
  
@@ -90,7 +107,7 @@ The distribution includes examples that demonstrate performance improvements tha
 There are also some more complex generators, for example producing recursively-tiled loops to walk arrays in Morton order - code that is very hard to write by hand.
 Taskgraphs are typed and taskgraph parameters are type-checked.
 
-##Authors and Contributors
+## Authors and Contributors
 * Alastair Houghton
 * Michael Mellor
 * Paul Kelly
