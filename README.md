@@ -24,7 +24,7 @@ The library is presented in the following paper (however this distribution has a
 ```
 Available from [Springer](https://link.springer.com/chapter/10.1007/978-3-540-25935-0_17) or freely from [here](https://www.doc.ic.ac.uk/~phjk/Publications/DagstuhlDSPGBookPaperOnTaskGraphs.pdf).
 
-The core idea here, that we use types to distinguish between binding times instead of quasi-quotation (as seen in Lisp, tick-C and MetaOcaml), is common to Lightweight Modular Staging (LMS), as proposed by Rompf and Odersky in 2020 (the paper is [here](https://dl.acm.org/doi/10.1145/1868294.1868314)).
+The core idea here, that we use types to distinguish between binding times instead of quasi-quotation (as seen in Lisp, tick-C and MetaOcaml), is common to Lightweight Modular Staging (LMS), as proposed by Rompf and Odersky in 2020 (the paper is [here](https://dl.acm.org/doi/10.1145/1868294.1868314)). 
 
 
 ## Example (from examples/introductory/simpleinterchange)
