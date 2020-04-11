@@ -1,0 +1,69 @@
+introductory:
+  - simple : A simple test to make sure the library is working.
+  - imgfilt : A common task in image processing applications is to
+    apply a mask to an image. This example can statically compile mask
+    filter values into a specialised version of the code, leading to a
+    much faster implementation (up to 4 times faster).
+  - matrixmult : This example shows some of the loop processing techniques
+    that are present in the TaskGraph library (or to be more precise,
+    the ROSE/SUIF libraries). It generates a standard matrix multiply
+    implementation using TaskGraph and uses the technique of loop
+    blocking in order to partition it into 64x64 blocks, which leads to
+    better performance.
+
+intermediate:
+  - expressions : A specialised interpretor based on the visitor pattern.
+  - interpreter : This is an interesting example of a virtual machine
+    interpreter that takes bytecode and generates specialised C code
+    to execute the bytecode instructions, similar to a Just In Time
+    (JIT) compiler.  This particular example contains instructions
+    for calculating numerical values, in this case 10 factorial (10!).
+    The bytecode interpreter contains C++ and TaskGraph implementations,
+    and typically the TaskGraph implementation outperforms the C
+    implementation by a factor of 2.
+  - skewedgaussseidel : An iterated Gauss-Seidel smoother example which
+    is transformed using skewing and then tiling. The header comment
+    in skewedgaussseidel.cc shows speedup results for a Pentium 4.
+
+complex:
+  - fft : A Finite Fourier Transform inmplementation. See the comments
+    in fft/fft.cc for more information.
+  - multistage : An example of how to do multisatge programming in the
+    Taskgraph library.
+  - raytracer : An interesting example - a ray tracer in TaskGraph.
+    This example can specialise a ray tracer to a specific scene and
+    thus render a scene very quickly (up to 6 times as fast as the
+    regular implementation).
+
+others:
+  - mathintrprt : A specialised interpreter which demonstrates callbacks
+    in the TaskGraph library.
+  - mmiter : This example is similar to the matrixmult example.  It uses
+    the TaskGraph library's TaskIterative technique in order to
+    try several different tiling sizes.  There are two TaskGraph
+    implementations of the algorithm here: a hand-tiled implementation
+    and one that relies on the tiling/blocking abilities of the ROSE/SUIF
+    library to do the actual tiling.
+  - mortonmm : This is a recursively-tiled matrix transpose. This
+    recursive tiling results in a Morton-order traversal. 
+  - mortontiling : Morton layout matrix multiply with tiling.
+  - zeros : This is an example of a program that finds zero solutions
+    in a specific polynomial.  The example given is the polynomial
+    (x-10)(x-9)(x-8)(x-7)(x-6)(x-5)(x-4)(x-3)(x-2)(x-1), which is
+    specified as the list p in the code.  The specialised implementation
+    runs up to 3 times as fast as the standard implementation.
+
+toy:
+  Lots of simple programs to see various concepts of the library.
+
+cell:
+ - mandelbrot: Generates a PNG of the mandelbrot set using the TaskFarm class
+   to calculate the rows in parallel. Two versions exit, using the type-safe
+   and type-unsafe interfaces. The type-unsafe version determines the amount of
+   data to send at runtime.
+ - pipeline: Constructs a pipeline of TaskGraphs and sends floats through them. 
+   Currently only works with primitive types and is intended as an example of
+   how a more powerful pipeline might be implemented.
+
+tests:
+  Formal tests of the taskgraph library.

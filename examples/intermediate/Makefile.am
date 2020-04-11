@@ -1,0 +1,1 @@
+SUBDIRS = interpreter expressions skewedgaussseidel

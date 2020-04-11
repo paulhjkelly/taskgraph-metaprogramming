@@ -1,0 +1,33 @@
+digraph suif_library_dependencies
+{
+  graph[rankdir=BT, size="6,6"];
+  node[shape=ellipse, fillcolor=goldenrod1, style=filled]; 
+  
+  suif1
+
+  useful -> suif1
+  
+  builder -> suif1
+  builder -> useful
+
+  check -> suif1
+  check -> useful
+
+  dependence -> suifmath
+  dependence -> builder
+  dependence -> useful
+  dependence -> suif1
+
+  suifmath -> builder
+  suifmath -> useful
+  suifmath -> suif1
+
+  s2c -> useful
+  s2c -> suif1
+
+  transform -> dependence
+  transform -> suifmath
+  transform -> builder
+  transform -> useful
+  transform -> suif1
+}

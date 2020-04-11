@@ -1,0 +1,4 @@
+suifmath/libsuifmath_la-lib_ver.lo: suifmath/lib_ver.cc \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

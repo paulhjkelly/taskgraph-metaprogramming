@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# This file should only be run automatically by make, not directly by
+# the user.
+#
+# This script is part of the SUIF version control system.  It takes
+# two arguments; the first is the name of the file to create and the
+# second is the prefix to use for variable names.  It creates the
+# version file with the current version information.
+
+if test "" = ""${1}; then
+    echo "no file name given to ver_create_ver_cc" 1>&2
+    exit 1
+fi
+
+if test "" = ""${2}; then
+    echo "no prefix given to ver_create_ver_cc" 1>&2
+    exit 1
+fi
+
+if test -r stamp-version; then
+    prog_version=`cat stamp-version`
+    rm -f stamp-ver-change
+    find ${ALLSRCS} -newer stamp-version -exec touch stamp-ver-change \; \
+            1> /dev/null 2>&1
+    if test -f stamp-ver-change; then
+        rm -f stamp-ver-change
+        prog_version=${prog_version}" (plus local changes)"
+    fi
+else
+    prog_version="(unnumbered test version)"
+fi
+
+if test -r ${SUIFHOME}/stamp-version; then
+    suif_system_version=`cat ${SUIFHOME}/stamp-version`
+else
+    suif_system_version="(unknown version)"
+fi
+
+if (test -d ${1}) ; then
+    echo "directory "${1}" exists; unable to create file" 1>&2
+    exit 1
+fi
+
+rm -f ${1}
+touch ${1}
+echo "/* Generated automatically by the SUIF makefiles. */" >> ${1}
+echo >> ${1}
+echo "const char *"${2}"_ver_string = \""${prog_version}"\";" >> ${1}
+echo "const char *"${2}"_who_string = \"compiled "`date`" by "`whoami`" on" \
+     `hostname`"\";" >> ${1}
+echo "const char *"${2}"_suif_string = \""${suif_system_version}"\";" >> ${1}

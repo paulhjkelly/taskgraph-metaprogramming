@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd .. && test -f "./ltmain.sh" || (echo "Please run this script from the scripts directory." && exit 1)
+
+if test "$1" != "-f"; 
+
+then echo "Please specify -f to signify you really want to do this!" &&
+echo "This script will delete a number of files and directories including the _MTN directory." &&
+exit 1
+
+else
+
+./bootstrap &&
+rm -rf ./bootstrap ./autom4te.cache ./_MTN &&
+mkdir -p ./boost_local/include &&
+cp -r /usr/include/boost ./boost_local/include &&
+rm -rf ./scripts
+
+fi

@@ -1,0 +1,47 @@
+diff -ur /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.C ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.C
+--- /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.C	2004-08-11 22:09:48.000000000 +0100
++++ ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.C	2004-09-10 14:45:51.000000000 +0100
+@@ -272,6 +272,10 @@
+   return inst;
+ }
+ 
++void LoopTransformOptions::SetInstance(LoopTransformOptions *_inst) {
++  inst = _inst;
++}
++
+ void LoopTransformOptions :: PrintUsage(ostream& stream) const
+ {  
+    for ( SinglyLinkedListWrap <OptRegistryType*>::Iterator p(reg); !p.ReachEnd(); ++p) {
+diff -ur /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.h ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.h
+--- /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.h	2004-08-11 22:09:48.000000000 +0100
++++ ROSE-0.7.9a/src/midend/loopProcessing/driver/LoopTransformOptions.h	2004-09-10 14:48:16.000000000 +0100
+@@ -38,11 +38,13 @@
+   LoopNestFusion *fsOp;
+   LoopBlockingAnal *bkOp;
+   unsigned cacheline, splitlimit;
+-  LoopTransformOptions();
+-  ~LoopTransformOptions();
+ 
+  public:
+   static LoopTransformOptions* GetInstance () ;
++  static void SetInstance (LoopTransformOptions *_inst) ;
++
++  LoopTransformOptions();
++  ~LoopTransformOptions();
+ 
+   LoopTransformInterface* GetLoopTransformInterface() { return li; }
+   void SetLoopTransformInterface( LoopTransformInterface& la) { li = &la; }
+diff -ur /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/ROSETTA/Grammar/Support.code ROSE-0.7.9a/src/ROSETTA/Grammar/Support.code
+--- /homes/pcc03/bit/ROSE/ROSE-0.7.9a/src/ROSETTA/Grammar/Support.code	2004-07-23 09:19:32.000000000 +0100
++++ ROSE-0.7.9a/src/ROSETTA/Grammar/Support.code	2004-08-26 17:17:47.000000000 +0100
+@@ -5366,8 +5368,8 @@
+    {
+   // Default constructor
+ 
+-     printf ("This is the default constructor, use $GRAMMAR_PREFIX_File (argc,argv) instead \n");
+-     ROSE_ABORT();
++     // printf ("This is the default constructor, use $GRAMMAR_PREFIX_File (argc,argv) instead \n");
++     // ROSE_ABORT();
+ 
+      initialization ();
+ 

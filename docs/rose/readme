@@ -1,0 +1,46 @@
+Here are the instructions for getting a suitable version of ROSE for use
+with TaskGraph.  ROSE is an experimental compiler project at Lawrence
+Livermore National Laboratory and has not been released to the public,
+due to its pre-release status and use of the proprietary EDG front end.
+If you do not have a copy of ROSE and you have the distribution version
+of TaskGraph you will find a file "rose-bin.tar.bz2" in the TaskGraph
+distribution root directory.  Create a directory to extract this file
+to, this will be your ROSE installation prefix.  Then extract the
+"rose-bin.tar.bz2" file:
+
+  mkdir rose-bin
+  cd rose-bin
+  tar xjf /path/to/TaskGraph/rose-bin.tar.bz2
+
+Then you need not follow any more steps in this file -- proceed with
+the building of the TaskGraph library.
+
+If you have the internal version of TaskGraph and you wish to use
+ROSE, you must obtain the ROSE source archive and unpack it somewhere.
+Then apply the patch found in this directory, "ROSE-for-TaskGraph.patch"
+with the following commands:
+
+  cd /path/to/ROSE-0.7.9a
+  patch -p1 < /path/to/TaskGraph/docs/rose/ROSE-for-TaskGraph.patch
+
+Then to build ROSE execute the following commands:
+
+  cd /path/to/ROSE-0.7.9a
+  mkdir ../ROSE-build
+  cd ../ROSE-build
+  ../ROSE-0.7.9a/configure --prefix=/full/path/to/usr
+  make
+  make install
+
+These commands will install ROSE to the prefix /full/path/to/usr - be
+sure to substitute /full/path/to/usr for the full path to the desired
+installation prefix for ROSE.
+
+After installing ROSE you will have to make some fixups to the ROSE
+installation prefix directory.  These will be necessary until ROSE is
+more polished for general release.  To do this go to the ROSE installation
+prefix directory and type:
+
+  /path/to/TaskGraph/docs/rose/ROSE-prefix-fixups.sh
+
+Now proceed with the building of the TaskGraph library.

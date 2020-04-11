@@ -1,0 +1,39 @@
+Requirements
+------------
+
+- Boost headers. Optional but recommended.
+
+  If these are not found on the local system, the configuration
+  script will use a subset of Boost headers supplied with this distribution.
+  If the supplied Boost headers are used, it will not not be possible to install
+  TaskGraph to another location using the 'make install' command.
+
+- libpng library and headers. Only if building on a platform with the Cell Broadband Engine.
+
+  The libpng library is required for the Cell mandelbrot set example.
+
+
+General Install Instructions
+----------------------------
+
+To configure the package:
+
+./configure
+
+The following options may be helpful:
+
+  --prefix=PREFIX           The directory to which to install TaskGraph (See note above about Boost)
+  --with-gcc=LOCATION       Set the path of the gcc binary if it isn't detected automatically
+  --with-icc=LOCATION       Set the path of the icc binary if it isn't detected automatically
+  --with-ppuxlc=LOCATION    Set the path of the ppuxlc binary if it isn't detected automatically
+  --with-spugcc=LOCATION    Set the path of the spu-gcc binary if it isn't detected automatically
+  --with-spuxlc=LOCATION    Set the path of the spuxlc binary if it isn't detected automatically
+
+To build TaskGraph:
+
+make
+
+If you want to install the library, headers and example applications to the
+location specified with the --prefix option:
+
+make install
