@@ -1,3 +1,0 @@
-suif1/libsuif1_la-lib_ver.lo: suif1/lib_ver.cc /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:

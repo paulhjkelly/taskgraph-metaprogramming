@@ -1,3 +1,0 @@
-s2c/libs2c_la-lib_ver.lo: s2c/lib_ver.cc /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:

@@ -1,3 +1,0 @@
-check/libcheck_la-lib_ver.lo: check/lib_ver.cc /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:

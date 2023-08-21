@@ -1,4 +1,0 @@
-builder/libbuilder_la-lib_ver.lo: builder/lib_ver.cc \
- /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:
