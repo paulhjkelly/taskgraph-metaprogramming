@@ -1,9 +1,0 @@
-Finish.o: Finish.cc /usr/include/stdc-predef.h Finish.h Math3D.h Colour.h
-
-/usr/include/stdc-predef.h:
-
-Finish.h:
-
-Math3D.h:
-
-Colour.h:

@@ -1,4 +1,0 @@
-transform/libtransform_la-lib_ver.lo: transform/lib_ver.cc \
- /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:

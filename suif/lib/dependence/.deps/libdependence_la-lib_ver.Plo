@@ -1,4 +1,0 @@
-dependence/libdependence_la-lib_ver.lo: dependence/lib_ver.cc \
- /usr/include/stdc-predef.h
-
-/usr/include/stdc-predef.h:
