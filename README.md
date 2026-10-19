@@ -122,10 +122,32 @@ Taskgraphs are typed and taskgraph parameters are type-checked.
 
 ## Installation
 * Requires gcc (not just at build time but also at runtime) and boost (and probably more)
-* ./configure; make
+    * Create empty files that are required to exist by the `autoreconf` tool:
+    
+        ```
+        touch NEWS; touch README ; touch ChangeLog
+        ```
+
+    * Regenerate the `configure` file using `autoreconf`: 
+    
+        ```
+        autoreconf -fi -I m4
+        ```
+
+    * Regenerate `Makefile.in` files from `Makefile.am` templates:
+        
+        ```
+        automake
+        ```
+
+    * Finally configure and build the project:
+
+        ```
+        ./configure; make
+        ```
 
 ## System requirements
-Tested in Ubuntu 18.04.  It has worked under cygwin in the past.  
+Tested in Ubuntu 20.04.  It has worked under cygwin in the past.  
 
 ## Getting Started
 Take a look at the examples/introductory/simple directory.  Try to run:
